@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <title>Student Registration Form</title>
+</head>
+<body>
+    <h3>STUDENT REGISTRATION FORM</h3>
+    <form action="student.html" method="post" name="myform" id="frm" onsubmit="return validateForm()">
+
+    <table align="center" cellpadding="10" id="mytable">
+
+        <tr>
+            <td>FIRST NAME</td>
+            <td><input type="text" name="first" maxlength="30"> (max 30 characters a-z and A-Z)</td>
+        </tr>
+
+
+        <tr>
+            <td>LAST NAME</td>
+            <td><input type="text" name="last" maxlength="30"> (max 30 characters a-z and A-Z)</td>
+        </tr>
+
+        <tr>
+            <td>DATE OF BIRTH</td>
+            <td><select name="date" id="date" >
+                    <option value="" disabled selected hidden>Day:</option>
+                    <option value="0">Select Day</option>
+                    <script>
+                        for(var i=1; i<=31; i++) {
+                            document.write("<option value="+i+">"+i+"</option>")
+                        }
+                    </script>
+                </select>
+
+                <select name="month" id="month" >
+                    <option value="" disabled selected hidden>Month:</option>
+                    <option value="0">Select Month</option>
+                    <script>
+                        var month = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+                        for(var i=1; i<month.length; i++) {
+                            document.write("<option value="+i+">"+month[i]+"</option>")
+                        }
+                    </script>
+                </select>
+
+
+
+                <select name="year" id="year">
+                    <option value="" disabled selected hidden>Year:</option>
+                    <option value="0">Select Year</option>
+                    <script>
+                        var year = 1960;
+                        for(var i=year; i<=2022; i++) {
+                            document.write("<option value="+i+">"+i+"</option>")
+                        }
+                    </script>
+                </select></td>            
+        </tr>
+
+        <tr>
+            <td>EMAIL ID</td>
+            <td><input type="text" name="email" maxlength="100"></td>
+        </tr>
+
+
+        <tr>
+            <td>MOBILE NUMBER</td>
+            <td><input type="text" name="mb">(10 digit number)</td>
+        </tr>
+
+
+        <tr>
+            <td>GENDER</td>
+            <td>Male<input type="radio" name="gender" value="male"> &ensp; Female<input type="radio" name="gender" value="female"></td>
+        </tr>
+
+
+        <tr>
+            <td>ADDRESS</td>
+            <td><textarea name="address" rows="4" cols="30"></textarea></td>
+        </tr>
+
+
+        <tr>
+            <td>CITY</td>
+            <td><input type="text" name="city" maxlength="30"> (max 30 characters a-z and A-Z)</td>
+        </tr>
+
+
+        <tr>
+            <td>PIN CODE</td>
+            <td><input type="text" name="pincode" maxlength="6"> (6 digit number)</td>
+        </tr>
+
+
+        <tr>
+            <td>STATE</td>
+            <td><input type="text" name="state" maxlength="30"> (max 30 characters a-z and A-Z)</td>
+        </tr>
+
+
+
+
+        <tr>
+            <td>COUNTRY</td>
+            <td><input type="text" name="country" value="India" readonly="readonly"></td>
+        </tr>
+
+
+        <tr>
+            <td>HOBBIES  <br><br><br></td>
+            <td>
+                Drawing
+                    <input type="checkbox" name="Hobby_Drawing" class="hobby" value="Drawing">&nbsp;
+                Singing
+                    <input type="checkbox" name="Hobby_Singing" class="hobby" value="Singing">&nbsp;
+                Dancing
+                    <input type="checkbox" name="Hobby_Dancing" class="hobby" value="Dancing">&nbsp;
+                Sketching
+                    <input type="checkbox" name="Hobby_Cooking" class="hobby" value="Cooking">&nbsp;
+                <br />
+                Others
+                    <input type="checkbox" name="Hobby_Other" class="hobby" value="Other">
+                    <input type="text" name="Other_Hobby" maxlength="30">
+            </td>
+        </tr>
+
+        <tr>
+            <td>QUALIFICATION <br><br><br><br><br><br><br></td>
+             
+            <td>
+                <table id="qualifications">
+             
+                    <tr>
+                        <td align="center"><b>Sl.No.</b></td>
+                        <td align="center"><b>Examination</b></td>
+                        <td align="center"><b>Board</b></td>
+                        <td align="center"><b>Percentage</b></td>
+                        <td align="center"><b>Year of Passing</b></td>
+                    </tr>
+             
+                    <tr>
+                        <td>1</td>
+                        <td>Class X</td>
+                        <td><input type="text" name="ClassX_Board" class="brd" maxlength="30" /></td>
+                        <td><input type="text" name="ClassX_Percentage" class="mrk" maxlength="30" /></td>
+                        <td><input type="text" name="ClassX_YrOfPassing" class="yrp" maxlength="30" /></td>
+                    </tr>
+             
+                    <tr>
+                        <td>2</td>
+                        <td>Class XII</td>
+                        <td><input type="text" name="ClassXII_Board" class="brd" maxlength="30" /></td>
+                        <td><input type="text" name="ClassXII_Percentage" class="mrk" maxlength="30" /></td>
+                        <td><input type="text" name="ClassXII_YrOfPassing" class="yrp" maxlength="30" /></td>
+                    </tr>
+             
+                    <tr>
+                        <td>3</td>
+                        <td>Graduation</td>
+                        <td><input type="text" name="Graduation_Board" class="brd" maxlength="30" /></td>
+                        <td><input type="text" name="Graduation_Percentage" class="mrk" maxlength="30" /></td>
+                        <td><input type="text" name="Graduation_YrOfPassing" class="yrp" maxlength="30" /></td>
+                    </tr>
+             
+                    <tr>
+                        <td>4</td>
+                        <td>Masters</td>
+                        <td><input type="text" name="Masters_Board" class="brd" maxlength="30" /></td>
+                        <td><input type="text" name="Masters_Percentage" class="mrk" maxlength="30" /></td>
+                        <td><input type="text" name="Masters_YrOfPassing" class="yrp" maxlength="30" /></td>
+                    </tr>
+             
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td align="center">(10 char max)</td>
+                        <td align="center">(upto 2 decimal)</td>
+                    </tr>
+                </table>
+                         
+            </td>
+        </tr>
+    
+
+        <tr>
+            <td>COURSES <br> APPLIED FOR</td>
+            <td>
+                BCA
+                    <input type="radio" name="Course" value="BCA">&nbsp;
+                B.Com
+                    <input type="radio" name="Course" value="B.Com">&nbsp;
+                B.Sc
+                    <input type="radio" name="Course" value="B.Sc">&nbsp;
+                B.A
+                    <input type="radio" name="Course" value="B.A">&nbsp;
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Submit" class="btn" onmouseover="change()" onmouseout="original()">
+                <input type="reset" value="Reset" class="btn" onmouseover="change()" onmouseout="original()">
+            </td>
+        </tr>
+
+
+    </table>
+
+    </form>
+
+
+
+    
+
+</body>
+</html>
